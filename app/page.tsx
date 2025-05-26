@@ -846,65 +846,69 @@ export default function RentalEvaluationApp() {
             </div>
           </div>
         )}
-
-        {/* Section aide */}
-        <Card className="shadow-lg border-0 bg-gradient-to-r from-blue-50 to-green-50">
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2 text-gray-800">
-              <Info className="w-5 h-5" />
-              <span>Comment utiliser cet outil</span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-sm text-gray-700">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold mb-2">📊 Analyse Budget</h4>
-                <ul className="space-y-1 text-xs">
-                  <li>• Entrez vos revenus et dettes actuelles</li>
-                  <li>• L'outil calcule votre capacité de paiement</li>
-                  <li>
-                    • Respectez un ratio ≤ 40% pour une bonne santé financière
-                  </li>
-                  <li>• Testez différents loyers pour voir leur impact</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-semibold mb-2">🏠 Estimation Locative</h4>
-                <ul className="space-y-1 text-xs">
-                  <li>
-                    • Recherchez l'adresse sur
-                    montreal.ca/role-evaluation-fonciere
-                  </li>
-                  <li>
-                    • Notez la valeur municipale et le nombre de logements
-                  </li>
-                  <li>• Trouvez les taxes annuelles dans le compte de taxes</li>
-                  <li>• Ajustez selon les caractéristiques du logement</li>
-                </ul>
-              </div>
-            </div>
-
-            <Alert className="bg-blue-50 border-blue-200">
-              <Info className="w-4 h-4 text-blue-600" />
-              <AlertDescription className="text-blue-800">
-                <strong>Confidentialité:</strong> Toutes les données sont
-                traitées localement dans votre navigateur. Aucune information
-                n'est sauvegardée ou transmise à nos serveurs.
-              </AlertDescription>
-            </Alert>
-          </CardContent>
-        </Card>
-
-        {/* Footer */}
-        <div className="text-center text-sm text-gray-500 py-4">
-          <p>© 2025 LocLoc's - Outil d'évaluation financière de logement</p>
-          <p className="mt-1">
-            Les estimations sont basées sur des données municipales officielles
-            et des calculs standardisés.
-          </p>
-        </div>
       </div>
     </div>
   );
 }
+
+export const Foooter = () => {
+  return (
+    <>
+      {/* Section aide */}
+      <Card className="shadow-lg border-0 bg-gradient-to-r from-blue-50 to-green-50">
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2 text-gray-800">
+            <Info className="w-5 h-5" />
+            <span>Comment utiliser cet outil</span>
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-sm text-gray-700">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-semibold mb-2">📊 Analyse Budget</h4>
+              <ul className="space-y-1 text-xs">
+                <li>• Entrez vos revenus et dettes actuelles</li>
+                <li>• L'outil calcule votre capacité de paiement</li>
+                <li>
+                  • Respectez un ratio ≤ 40% pour une bonne santé financière
+                </li>
+                <li>• Testez différents loyers pour voir leur impact</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-2">🏠 Estimation Locative</h4>
+              <ul className="space-y-1 text-xs">
+                <li>
+                  • Recherchez l'adresse sur
+                  montreal.ca/role-evaluation-fonciere
+                </li>
+                <li>• Notez la valeur municipale et le nombre de logements</li>
+                <li>• Trouvez les taxes annuelles dans le compte de taxes</li>
+                <li>• Ajustez selon les caractéristiques du logement</li>
+              </ul>
+            </div>
+          </div>
+
+          <Alert className="bg-blue-50 border-blue-200">
+            <Info className="w-4 h-4 text-blue-600" />
+            <AlertDescription className="text-blue-800">
+              <strong>Confidentialité:</strong> Toutes les données sont traitées
+              localement dans votre navigateur. Aucune information n'est
+              sauvegardée ou transmise à nos serveurs.
+            </AlertDescription>
+          </Alert>
+        </CardContent>
+      </Card>
+
+      {/* Footer */}
+      <div className="text-center text-sm text-gray-500 py-4">
+        <p>© 2025 LocLoc's - Outil d'évaluation financière de logement</p>
+        <p className="mt-1">
+          Les estimations sont basées sur des données municipales officielles et
+          des calculs standardisés.
+        </p>
+      </div>
+    </>
+  );
+};

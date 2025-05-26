@@ -270,6 +270,49 @@ export const RatioIndicator: React.FC<{ analysis: RatioAnalysis }> = ({
     }
   };
 
+  // Calculate position on gradient scale based on ratio ranges
+  const getIndicatorPosition = () => {
+    const ratio = analysis.ratio;
+
+    // Your ranges: <33 excellent, 33-44 good, 44-50 elevated, 50+ critical
+    if (ratio < 33) {
+      // Excellent range: 0-33% maps to 75-100% position on gradient (green section)
+      return 75 + ((33 - ratio) / 33) * 25;
+    } else if (ratio < 44) {
+      // Good range: 33-44% maps to 50-75% position on gradient (blue section)
+      return 50 + ((44 - ratio) / 11) * 25;
+    } else if (ratio < 50) {
+      // Elevated range: 44-50% maps to 25-50% position on gradient (orange section)
+      return 25 + ((50 - ratio) / 6) * 25;
+    } else {
+      // Critical range: 50%+ maps to 0-25% position on gradient (red section)
+      return Math.max(0, 25 - ((ratio - 50) / 20) * 25);
+    }
+  };
+
+  // Get scale labels with proper positioning
+  const getScaleLabels = () => [
+    {
+      label: "50%+",
+      sublabel: "Critique",
+      position: 12,
+      color: "text-red-700",
+    },
+    {
+      label: "44-50%",
+      sublabel: "Élevé",
+      position: 37,
+      color: "text-orange-700",
+    },
+    { label: "33-44%", sublabel: "Bon", position: 62, color: "text-blue-700" },
+    {
+      label: "<33%",
+      sublabel: "Excellent",
+      position: 87,
+      color: "text-green-700",
+    },
+  ];
+
   const getMessage = () => {
     switch (analysis.category) {
       case "excellent":
@@ -300,6 +343,55 @@ export const RatioIndicator: React.FC<{ analysis: RatioAnalysis }> = ({
           {getMessage()}
         </AlertDescription>
       </Alert>
+
+      {/* Gradient Scale Indicator */}
+      <div className="relative pb-12">
+        {/* Main gradient bar */}
+        <div
+          className="w-full h-10 rounded-0 shadow-inner relative overflow-hidden"
+          style={{
+            background:
+              "linear-gradient(to right, #ef4444 0%, #ef4444 25%, #f97316 25%, #f97316 50%, #3b82f6 50%, #3b82f6 75%, #10b981 75%, #10b981 100%)",
+          }}
+        >
+          {/* Current position indicator */}
+          <div
+            className="absolute top-0 bottom-0 w-1 bg-white border-2 border-gray-800 shadow-lg transition-all duration-500 ease-out"
+            style={{
+              left: `${getIndicatorPosition()}%`,
+              transform: "translateX(-50%)",
+            }}
+          >
+            {/* Top triangle pointer */}
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+              <div className="w-0 h-0 border-l-3 border-r-3 border-b-3 border-transparent border-b-gray-800"></div>
+            </div>
+
+            {/* Bottom triangle pointer */}
+            <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
+              <div className="w-0 h-0 border-l-3 border-r-3 border-t-3 border-transparent border-t-gray-800"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scale labels */}
+        <div className="relative mt-4">
+          {getScaleLabels().map((scale, index) => (
+            <div
+              key={index}
+              className={`absolute text-center text-xs font-medium ${scale.color}`}
+              style={{
+                left: `${scale.position}%`,
+                transform: "translateX(-50%)",
+                minWidth: "60px",
+              }}
+            >
+              <div className="font-semibold">{scale.label}</div>
+              <div className="text-xs opacity-75">{scale.sublabel}</div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="w-full bg-gray-100 rounded-full h-3">
         <div
