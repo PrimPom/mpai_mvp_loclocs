@@ -154,11 +154,13 @@ export const calculateFeatureAdjustments = (
  * Calculate complete rental estimation
  * @param propertyData - Property data
  * @param features - Property features
+ * @param insurance - insurance amount
  * @returns Complete estimation with price range
  */
 export const calculateRentalEstimation = (
   propertyData: PropertyData,
-  features: PropertyFeatures
+  features: PropertyFeatures,
+  insurance: number = 250
 ): RentalEstimation => {
   const unitValue = calculateAverageUnitValue(
     propertyData.municipalValue,
@@ -176,7 +178,7 @@ export const calculateRentalEstimation = (
     propertyData.annualTaxes,
     propertyData.totalUnits
   );
-  const insurance = 250; // Fixed estimate
+
   const featureAdjustments = calculateFeatureAdjustments(features);
 
   const estimatedRentMin =
@@ -274,7 +276,6 @@ export const RatioIndicator: React.FC<{ analysis: RatioAnalysis }> = ({
   const getIndicatorPosition = () => {
     const ratio = analysis.ratio;
 
-    // Your ranges: <33 excellent, 33-44 good, 44-50 elevated, 50+ critical
     if (ratio < 33) {
       // Excellent range: 0-33% maps to 75-100% position on gradient (green section)
       return 75 + ((33 - ratio) / 33) * 25;

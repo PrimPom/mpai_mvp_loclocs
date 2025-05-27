@@ -28,8 +28,6 @@ import {
   calculateMonthlyDebts,
   calculateRentalEstimation,
   DebtCalculation,
-  MonthlyIncomes,
-  MonthlyLoans,
   PersonalFinances,
   PropertyData,
   PropertyFeatures,
@@ -85,6 +83,8 @@ export default function RentalEvaluationApp() {
     poorCondition: false,
   });
 
+  const [insuranceAmount, setInsuranceAmount] = useState<number>(250);
+
   const [activeTab, setActiveTab] = useState<"budget" | "estimation">("budget");
 
   // memorized calcul
@@ -108,8 +108,13 @@ export default function RentalEvaluationApp() {
   );
 
   const rentalEstimation = useMemo(
-    () => calculateRentalEstimation(propertyData, propertyFeatures),
-    [propertyData, propertyFeatures]
+    () =>
+      calculateRentalEstimation(
+        propertyData,
+        propertyFeatures,
+        insuranceAmount
+      ),
+    [propertyData, propertyFeatures, insuranceAmount]
   );
 
   const handleFeatureChange = useCallback(
@@ -565,6 +570,19 @@ export default function RentalEvaluationApp() {
                         }))
                       }
                       placeholder="60704"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="insurance">Assurance Mensuelle ($)</Label>
+                    <Input
+                      id="insurance"
+                      type="number"
+                      value={insuranceAmount || "250"}
+                      onChange={(e) =>
+                        setInsuranceAmount(parseFloat(e.target.value) || 250)
+                      }
+                      placeholder="250"
                     />
                   </div>
 
