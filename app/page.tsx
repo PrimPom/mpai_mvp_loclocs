@@ -510,8 +510,8 @@ export default function RentalEvaluationApp() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Formulaire données propriété */}
             <div className="space-y-6">
-              <Card className="shadow-lg border-0 bg-white/80 backdrop-blur">
-                <CardHeader className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-t-lg">
+              <Card className="shadow-lg border-0 bg-white/80 backdrop-blur pt-0">
+                <CardHeader className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-t-lg py-10">
                   <CardTitle className="flex items-center space-x-2">
                     <Home className="w-5 h-5" />
                     <span>Données de la Propriété</span>
