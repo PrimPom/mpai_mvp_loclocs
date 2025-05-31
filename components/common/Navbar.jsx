@@ -17,7 +17,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full bg-white shadow-md fixed top-0 z-50">
+    <nav className="w-full bg-white shadow-lg fixed top-0 z-50">
       <div className="max-w-7xl mx-auto lg:px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-primary text-2xl font-bold">LOCLOC’S</div>
