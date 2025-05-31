@@ -69,120 +69,11 @@ function BudgetLocCalculator() {
     ]
   );
 
-  const CalculatorField = ({
-    label,
-    value,
-    onValueChange,
-    hasTooltip = false,
-    placeholder,
-    tooltipContent = "",
-    fieldKey = "",
-  }: {
-    label: string;
-    value: string | number;
-
-    onValueChange: (value: string) => void;
-    placeholder: string;
-    hasTooltip?: boolean;
-    tooltipContent?: string;
-    fieldKey?: string;
-  }) => (
-    <div className="space-y-2">
-      <div className="flex items-center gap-2">
-        <Label htmlFor="preTaxSalary">{label}</Label>
-        {hasTooltip && (
-          <div className="relative">
-            <Button
-              onMouseEnter={() => setShowTooltip(fieldKey)}
-              onMouseLeave={() => setShowTooltip(null)}
-              className="text-primary/70 hover:text-primary transition-colors"
-            >
-              <HelpCircle className="h-4 w-4" />
-            </Button>
-            {showTooltip === fieldKey && tooltipContent && (
-              <div className="absolute z-20 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-primary rounded-lg shadow-lg whitespace-nowrap">
-                {tooltipContent}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-blue-600"></div>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-      <Input
-        id={fieldKey ?? placeholder}
-        type="number"
-        value={value}
-        onChange={(e) => onValueChange(e.target.value)}
-        placeholder={placeholder}
-        className="text-lg"
-      />
-    </div>
-  );
-
   return (
-    <div className=" w-full  flex justify-center items-center">
+    <div className=" max-w-7xl mx-auto  flex justify-center items-center">
       <div className="container grid grid-cols-1 justify-center items-start lg:grid-cols-12 gap-8">
         {/* Sidebar */}
-        <div className="lg:col-span-3 h-full ">
-          <div className="bg-primary rounded-2xl px-6 text-white sticky top-6 py-42 md:px-12">
-            <h1 className="text-2xl font-bold mb-4">BudgetLoc™</h1>
-            <div className="space-y-4 mb-6">
-              <p className="text-blue-100">
-                Combien pouvez-vous réellement payer ?
-              </p>
-              <p className="text-blue-100">
-                C'est la première question à se poser avant de chercher un
-                logement.
-              </p>
-              <p className="text-blue-100">
-                BudgetLoc™ est une calculatrice financière simple, intuitive et
-                conçue pour les locataires.
-              </p>
-              <p className="text-blue-100">
-                En quelques clics, vous saurez exactement quel loyer correspond
-                à votre budget.
-              </p>
-            </div>
-            <div className="mb-6">
-              <h3 className="font-semibold mb-3">Ce que ça vous apporte :</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-blue-100">
-                    Louer un logement adapté à votre réalité financière
-                  </span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-blue-100">
-                    Éviter de vivre au-dessus de vos moyens
-                  </span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-blue-100">
-                    Épargner pour un futur achat immobilier
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="border-t border-blue-300 pt-6">
-              <h3 className="font-semibold mb-3">QUESTION?</h3>
-              <p className="text-sm text-blue-100 mb-4">
-                Si vous avez encore des questions au sujet de votre ratio
-                d'endettement, vous pouvez nous écrire à
-              </p>
-              <div className="flex items-center gap-2 text-sm">
-                <Mail className="h-4 w-4" />
-                <span>Nos contacts</span>
-              </div>
-              <p className="text-sm text-blue-100 mt-1">
-                Nous sommes à votre écoute
-              </p>
-              <p className="text-sm font-medium mt-2">contact@loclocs.com</p>
-            </div>
-          </div>
-        </div>
+        <CalculatorSidebar />
         {/* Main Content */}
         <div className="lg:col-span-9">
           <Card className="">
@@ -214,6 +105,8 @@ function BudgetLocCalculator() {
                   </div>
                   <div className="space-y-8">
                     <CalculatorField
+                      showTooltip={showTooltip}
+                      setShowTooltip={setShowTooltip}
                       fieldKey="preTaxSalary"
                       label="Salaire avant impôts"
                       value={personalFinances.monthlyIncomes.preTaxSalary || ""}
@@ -231,6 +124,8 @@ function BudgetLocCalculator() {
                       // tooltipContent=""
                     />
                     <CalculatorField
+                      showTooltip={showTooltip}
+                      setShowTooltip={setShowTooltip}
                       fieldKey="alimonyReceived"
                       label="Pension reçue"
                       value={
@@ -250,6 +145,8 @@ function BudgetLocCalculator() {
                       // tooltipContent=""
                     />
                     <CalculatorField
+                      showTooltip={showTooltip}
+                      setShowTooltip={setShowTooltip}
                       fieldKey="familyBenefits"
                       label="Prestations familiales"
                       value={
@@ -269,6 +166,8 @@ function BudgetLocCalculator() {
                       // tooltipContent=""
                     />
                     <CalculatorField
+                      showTooltip={showTooltip}
+                      setShowTooltip={setShowTooltip}
                       fieldKey="others"
                       label="Prestations familiales"
                       value={personalFinances.monthlyIncomes.others || ""}
@@ -296,6 +195,8 @@ function BudgetLocCalculator() {
                   </div>
                   <div className="space-y-8">
                     <CalculatorField
+                      showTooltip={showTooltip}
+                      setShowTooltip={setShowTooltip}
                       fieldKey="carPayment"
                       label="Paiement auto principal"
                       value={personalFinances.autoExpenses.car || ""}
@@ -313,6 +214,8 @@ function BudgetLocCalculator() {
                       // tooltipContent=""
                     />
                     <CalculatorField
+                      showTooltip={showTooltip}
+                      setShowTooltip={setShowTooltip}
                       fieldKey="otherPayment"
                       label="Paiement pour autre véhicule"
                       value={personalFinances.autoExpenses.other || ""}
@@ -340,6 +243,8 @@ function BudgetLocCalculator() {
                   </div>
                   <div className="space-y-8">
                     <CalculatorField
+                      showTooltip={showTooltip}
+                      setShowTooltip={setShowTooltip}
                       fieldKey="creditCard"
                       label="Solde carte de crédit"
                       value={personalFinances.credits.card || ""}
@@ -357,6 +262,8 @@ function BudgetLocCalculator() {
                       // tooltipContent=""
                     />
                     <CalculatorField
+                      showTooltip={showTooltip}
+                      setShowTooltip={setShowTooltip}
                       fieldKey="creditLine"
                       label="Solde marge de crédit"
                       value={personalFinances.credits.line || ""}
@@ -384,6 +291,8 @@ function BudgetLocCalculator() {
                   </div>
                   <div className="space-y-8">
                     <CalculatorField
+                      showTooltip={showTooltip}
+                      setShowTooltip={setShowTooltip}
                       fieldKey="proposedRent"
                       label="Loyer envisagé"
                       value={proposedRent || ""}
@@ -518,3 +427,122 @@ function BudgetLocCalculator() {
 }
 
 export default BudgetLocCalculator;
+
+export function CalculatorSidebar() {
+  return (
+    <div className="lg:col-span-3 h-full ">
+      <div className="bg-primary rounded-2xl px-6 text-white sticky top-6 py-42 md:px-12">
+        <h1 className="text-2xl font-bold mb-4">BudgetLoc™</h1>
+        <div className="space-y-4 mb-6">
+          <p className="text-blue-100">
+            Combien pouvez-vous réellement payer ?
+          </p>
+          <p className="text-blue-100">
+            C'est la première question à se poser avant de chercher un logement.
+          </p>
+          <p className="text-blue-100">
+            BudgetLoc™ est une calculatrice financière simple, intuitive et
+            conçue pour les locataires.
+          </p>
+          <p className="text-blue-100">
+            En quelques clics, vous saurez exactement quel loyer correspond à
+            votre budget.
+          </p>
+        </div>
+        <div className="mb-6">
+          <h3 className="font-semibold mb-3">Ce que ça vous apporte :</h3>
+          <div className="space-y-2 text-sm">
+            <div className="flex items-start gap-2">
+              <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <span className="text-blue-100">
+                Louer un logement adapté à votre réalité financière
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <span className="text-blue-100">
+                Éviter de vivre au-dessus de vos moyens
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <span className="text-blue-100">
+                Épargner pour un futur achat immobilier
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="border-t border-blue-300 pt-6">
+          <h3 className="font-semibold mb-3">QUESTION?</h3>
+          <p className="text-sm text-blue-100 mb-4">
+            Si vous avez encore des questions au sujet de votre ratio
+            d'endettement, vous pouvez nous écrire à
+          </p>
+          <div className="flex items-center gap-2 text-sm">
+            <Mail className="h-4 w-4" />
+            <span>Nos contacts</span>
+          </div>
+          <p className="text-sm text-blue-100 mt-1">
+            Nous sommes à votre écoute
+          </p>
+          <p className="text-sm font-medium mt-2">contact@loclocs.com</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function CalculatorField({
+  label,
+  value,
+  showTooltip,
+  onValueChange,
+  setShowTooltip,
+  hasTooltip = false,
+  placeholder,
+  tooltipContent = "",
+  fieldKey = "",
+}: {
+  label: string;
+  value: string | number;
+  showTooltip: string | null;
+  onValueChange: (value: string) => void;
+  setShowTooltip: (value: string | null) => void;
+  placeholder: string;
+  hasTooltip?: boolean;
+  tooltipContent?: string;
+  fieldKey?: string;
+}) {
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center gap-2">
+        <Label htmlFor="preTaxSalary">{label}</Label>
+        {hasTooltip && (
+          <div className="relative">
+            <Button
+              onMouseEnter={() => setShowTooltip(fieldKey)}
+              onMouseLeave={() => setShowTooltip(null)}
+              className="text-primary/70 hover:text-primary transition-colors"
+            >
+              <HelpCircle className="h-4 w-4" />
+            </Button>
+            {showTooltip === fieldKey && tooltipContent && (
+              <div className="absolute z-20 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-primary rounded-lg shadow-lg whitespace-nowrap">
+                {tooltipContent}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-blue-600"></div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+      <Input
+        id={fieldKey ?? placeholder}
+        type="number"
+        value={value}
+        onChange={(e) => onValueChange(e.target.value)}
+        placeholder={placeholder}
+        className="text-lg"
+      />
+    </div>
+  );
+}

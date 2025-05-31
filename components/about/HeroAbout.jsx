@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { Home, Tag } from "lucide-react";
 
 export default function HeroAbout() {
   return (

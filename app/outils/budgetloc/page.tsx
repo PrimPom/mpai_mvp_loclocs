@@ -12,7 +12,7 @@ function BudgetLocPage() {
         <img
           src="./../budgetloc-hero.svg"
           alt="budgetloc-hero"
-          className="mb-33"
+          className="w-full mb-33"
         />
       </FadeInWhenVisible>
 

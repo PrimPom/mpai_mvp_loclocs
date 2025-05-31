@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full bg-white shadow-md fixed top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto lg:px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-primary text-2xl font-bold">LOCLOC’S</div>
 
@@ -68,7 +68,7 @@ export default function Navbar() {
         </div>
 
         <Link
-          href="/"
+          href="/contact"
           className="hidden md:block ml-6 px-6 py-2 ring-2 ring-primary text-primary hover:text-white rounded-full font-semibold hover:bg-primary transition"
         >
           Contactez-nous

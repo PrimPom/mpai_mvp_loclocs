@@ -10,7 +10,7 @@ import {
 
 function FAQSection() {
   return (
-    <div className="container m-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-start space-x-16 mt-30">
+    <div className="container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-start space-x-16 mt-30">
       {/** Know more text */}
       <div className="flex flex-col space-y-10 ">
         <div className="flex flex-col items-start w-fit">
