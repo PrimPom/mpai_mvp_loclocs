@@ -1,5 +1,6 @@
 "use client";
 
+import FadeInWhenVisible from "@/components/common/FadeInWhenVisible";
 import ContactDetailsSection from "@/components/contact/ContactDetailsSection";
 import ContactFormSection from "@/components/contact/FormSection";
 import ContactHeroSection from "@/components/contact/HeroSection";
@@ -57,14 +58,22 @@ function ContactPage() {
   };
   return (
     <div className="flex flex-col max-w-7xl mx-auto items-center">
-      <ContactHeroSection />
-      <ContactDetailsSection />
-      <ContactFormSection
-        isSubmitting={isSubmitting}
-        isSuccess={isSuccess}
-        onSubmit={handleSubmitForm}
-        onReset={resetForm}
-      />
+      <FadeInWhenVisible>
+        <ContactHeroSection />
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <ContactDetailsSection />
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <ContactFormSection
+          isSubmitting={isSubmitting}
+          isSuccess={isSuccess}
+          onSubmit={handleSubmitForm}
+          onReset={resetForm}
+        />
+      </FadeInWhenVisible>
     </div>
   );
 }
