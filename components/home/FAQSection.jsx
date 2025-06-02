@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 
 import {
     Accordion,
@@ -35,15 +36,15 @@ import {
             </h2>
             <p className="mt-4 text-sm">
               Vous avez encore besoin d’aide ?{" "}
-              <a href="#" className="text-primary underline">
+              <Link href="/contact" className="text-primary underline">
                 Contactez-nous
-              </a>
+              </Link>
             </p>
           </div>
   
           {/* RIGHT PART */}
           <div className="w-full md:w-1/2">
-            <Accordion type="single" collapsible className="space-y-3">
+            <Accordion type="single" collapsible className="space-y-3"  defaultValue="item-1">
               <AccordionItem value="item-1">
                 <AccordionTrigger className="bg-muted px-4 py-3 rounded-md hover:no-underline">
                   <span className="font-medium text-left">

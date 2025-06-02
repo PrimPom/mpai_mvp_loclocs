@@ -71,7 +71,7 @@ export default function Avis() {
         {/* Formulaire */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-full md:w-1/2 bg-white p-6 rounded-2xl shadow-md space-y-5"
+          className="w-full md:w-1/2 bg-white p-12 rounded-3xl shadow-xl space-y-5"
         >
          
           <div className="flex flex-col md:flex-row gap-4">

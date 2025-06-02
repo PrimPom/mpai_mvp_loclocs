@@ -13,7 +13,7 @@ export default function HeroSection() {
           alt="Maison moderne"
           width={1600}
           height={900}
-          className="w-full h-screen object-cover"
+          className="w-full h-[90vh] object-cover"
           priority
         />
       
@@ -30,7 +30,7 @@ export default function HeroSection() {
           </div>
           
           {/* Glass box  */}
-          <div className="flex justify-end px-6 md:px-16 pb-10 md:pb-16  ">
+          <div className="flex justify-end px-6 md:px-16 pb-10 md:pb-16 pt-4 ">
             <div className="bg-white/20 backdrop-blur-[24px] border border-white text-white shadow-xl  rounded-[40px] p-6 md:p-8 w-full max-w-sm space-y-8">
               <h3 className="text-xl font-semibold">Trouvez des informations sûr !</h3>
              <div>
@@ -49,7 +49,7 @@ export default function HeroSection() {
 
               {/* CTA button */}
               <button className="flex items-center justify-center cursor-pointer gap-2 mt-3 w-full py-2 bg-primary hover:bg-sky-600 transition text-white font-semibold rounded-full text-sm">
-                 Essayer maintenant <ShoppingBag size={16} />
+                 Essayer maintenant <img src="/wallet.png" />
               </button>
               </div>
             </div>

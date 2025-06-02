@@ -1,8 +1,8 @@
 import { Instagram, Mail, Phone, Send } from "lucide-react";
-
+import Link from "next/link";
 export default function Footer() {
   return (
-    <footer className="bg-muted text-foreground px-6 pt-12">
+    <footer className="bg-muted text-foreground px-6 md:px-20 pt-12">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
 
         {/* Gauche */}
@@ -11,9 +11,9 @@ export default function Footer() {
           <p>
             Chez LocLoc’s, nous croyons que chaque locataire mérite de louer en toute confiance, d’être informé et protégé
           </p>
-          <button className="mt-4 px-5 py-2 bg-primary text-white rounded-full hover:bg-sky-700 transition">
+          <Link href='/contact' className="mt-4 px-5 py-2 bg-primary text-white rounded-full hover:bg-sky-700 transition">
             Contactez-nous
-          </button>
+          </Link>
         </div>
 
         {/* Droite */}

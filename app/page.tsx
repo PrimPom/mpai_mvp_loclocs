@@ -10,7 +10,7 @@ import FadeInWhenVisible from "@/components/common/FadeInWhenVisible";
 
 export default function Home() {
   return (
-    <>
+    <main className=" space-y-4">
       <FadeInWhenVisible>
         <HeroSection />
       </FadeInWhenVisible>
@@ -30,6 +30,6 @@ export default function Home() {
       <FadeInWhenVisible delay={0.4}>
         <Avis />
       </FadeInWhenVisible>
-    </>
+    </main>
   );
 }

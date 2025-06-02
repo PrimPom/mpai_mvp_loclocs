@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState, useRef } from "react";
+import { Menu, X , ChevronDown} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isMobileOpen, setMobileOpen] = useState(false);
@@ -18,9 +18,10 @@ export default function Navbar() {
 
   return (
     <nav className="w-full bg-white shadow-lg fixed top-0 z-50">
-      <div className="max-w-7xl mx-auto lg:px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-primary text-2xl font-bold">LOCLOC’S</div>
+      <div className="max-w-7xl mx-auto lg:px-6 py-4 flex justify-between items-center px-4">
+        <a href="/" className="text-primary text-2xl font-bold">
+          LOCLOC’S
+        </a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex justify-center items-center space-x-12">
@@ -34,35 +35,67 @@ export default function Navbar() {
               },
             }}
           >
-            <MotionNavItem href="/" label="Accueil" pathname={pathname} variants={itemVariant} />
-            <MotionNavItem href="/about" label="Qui sommes-nous ?" pathname={pathname} variants={itemVariant} />
+            <MotionNavItem
+              href="/"
+              label="Accueil"
+              pathname={pathname}
+              variants={itemVariant}
+            />
+            <MotionNavItem
+              href="/about"
+              label="Qui sommes-nous ?"
+              pathname={pathname}
+              variants={itemVariant}
+            />
 
             <motion.li
               className="relative group"
               variants={itemVariant}
               onMouseEnter={() => setToolsOpen(true)}
+              onMouseLeave={() => setToolsOpen(false)}
             >
               <span
-                className={`cursor-pointer relative transition ${
-                  pathname.includes('/outils') ? 'text-primary' : ''
-                } group-hover:text-sky-600`}
+                className={`cursor-pointer relative transition  flex items-center gap-1 justify-center ${
+                  pathname.includes("/outils") ? "text-primary" : ""
+                } group-hover:text-primary`}
               >
-                Nos outils
+                Nos outils <ChevronDown size={16} />
                 <span
                   className={`absolute left-1/2 -bottom-1 w-1.5 h-1.5 rounded-full bg-primary transition duration-300 transform -translate-x-1/2 ${
-                    pathname.includes('/outils') ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                    pathname.includes("/outils")
+                      ? "opacity-100"
+                      : "opacity-0 group-hover:opacity-100"
                   }`}
                 />
               </span>
 
-              {/* Sous-menu visible tant que isToolsOpen */}
-              {isToolsOpen && (
-                <ul className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
-                  <SubItem href="/outils/budgetloc" label="BudgetLoc™" onClick={() => setToolsOpen(false)} />
-                  <SubItem href="/outils/preloc" label="PréLoc™" onClick={() => setToolsOpen(false)} />
-                  <SubItem href="/outils/assurloc" label="AssurLoc™" onClick={() => setToolsOpen(false)} />
-                </ul>
-              )}
+              <AnimatePresence>
+                {isToolsOpen && (
+                  <motion.ul
+                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <SubItem
+                      href="/outils/budgetloc"
+                      label="BudgetLoc™"
+                      onClick={() => setToolsOpen(false)}
+                    />
+                    <SubItem
+                      href="/outils/preloc"
+                      label="PréLoc™"
+                      onClick={() => setToolsOpen(false)}
+                    />
+                    <SubItem
+                      href="/outils/assurloc"
+                      label="AssurLoc™"
+                      onClick={() => setToolsOpen(false)}
+                    />
+                  </motion.ul>
+                )}
+              </AnimatePresence>
             </motion.li>
           </motion.ul>
         </div>
@@ -95,7 +128,12 @@ export default function Navbar() {
           >
             <ul className="flex flex-col space-y-4 text-gray-700 font-medium">
               <NavItem href="/" label="Accueil" pathname={pathname} mobile />
-              <NavItem href="/about" label="Qui sommes-nous ?" pathname={pathname} mobile />
+              <NavItem
+                href="/about"
+                label="Qui sommes-nous ?"
+                pathname={pathname}
+                mobile
+              />
               <MobileDropdown label="Nos outils">
                 <SubItem href="/outils/budgetloc" label="BudgetLoc™" />
                 <SubItem href="/outils/preloc" label="PréLoc™" />
@@ -103,7 +141,7 @@ export default function Navbar() {
               </MobileDropdown>
               <li>
                 <Link
-                  href="/"
+                  href="/contact"
                   className="block w-full ring-2 ring-primary text-primary hover:bg-primary hover:text-white py-2 px-4 rounded-full text-center mt-4"
                 >
                   Contactez-nous
@@ -125,13 +163,13 @@ function MotionNavItem({ href, label, pathname, variants }) {
       <Link
         href={href}
         className={`relative transition ${
-          isActive ? 'text-primary' : 'hover:text-sky-600'
+          isActive ? "text-primary" : "hover:text-primary"
         } group`}
       >
         {label}
         <span
           className={`absolute left-1/2 -bottom-1 w-1.5 h-1.5 rounded-full bg-primary transform -translate-x-1/2 transition duration-300 ${
-            isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+            isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
           }`}
         />
       </Link>
@@ -147,14 +185,14 @@ function NavItem({ href, label, mobile = false, pathname }) {
       <Link
         href={href}
         className={`relative transition ${
-          isActive ? 'text-primary' : 'hover:text-sky-600'
-        } ${!mobile ? 'group' : ''}`}
+          isActive ? "text-primary" : "hover:text-sky-600"
+        } ${!mobile ? "group" : ""}`}
       >
         {label}
         {!mobile && (
           <span
             className={`absolute left-1/2 -bottom-1 w-1.5 h-1.5 rounded-full bg-primary transform -translate-x-1/2 transition duration-300 ${
-              isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+              isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
             }`}
           />
         )}
@@ -184,9 +222,9 @@ function MobileDropdown({ label, children }) {
     <li>
       <button
         onClick={() => setOpen(!open)}
-        className="w-full text-left hover:text-primary"
+        className="w-full text-left hover:text-primary flex items-center gap-3"
       >
-        {label}
+        {label} <ChevronDown size={16} />
       </button>
       {open && <ul className="pl-4 mt-2 space-y-2">{children}</ul>}
     </li>

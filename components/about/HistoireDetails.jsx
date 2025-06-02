@@ -3,12 +3,12 @@ import Image from "next/image";
 
 export default function HistoireDetails() {
   return (
-    <section className="bg-white py-24 px-6 md:px-16">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 items-center">
+    <section className="bg-white py-24  px-6 md:px-16">
+      <div className=" mx-auto grid md:grid-cols-3 gap-12 items-center">
         {/* Colonne gauche - Intro + texteee */}
         <div className="space-y-6 md:col-span-1">
           <div>
-            <h4 className="text-sm uppercase tracking-wide text-primary font-semibold">
+            <h4 className="text-sm uppercase tracking-wide text-black font-semibold">
               Notre histoire
               {/* soulignement*/}
               <div className="h-5 w-28  md:mx-0 md:ml-1  ">

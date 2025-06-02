@@ -47,18 +47,18 @@ export default function Team() {
           </div>
 
           {/* Cartes des membres */}
-          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className=" rounded-lg min-h-[300px]  text-center"
+                className=" rounded-lg   text-center"
               >
                 <Image
                   src={member.image}
                   alt={member.name}
                   width={300}
                   height={300}
-                  className="w-full h-full  rounded-xl object-cover"
+                  className="w-full h-auto  rounded-xl object-cover"
                 />
                 <div className="p-4">
                   <h3 className="text-sm font-semibold text-gray-900">
