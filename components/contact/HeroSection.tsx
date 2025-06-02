@@ -2,7 +2,7 @@ import React from "react";
 
 function ContactHeroSection() {
   return (
-    <section className=" container flex flex-col mt-30 md:mt-72 items-center space-y-5 ">
+    <section className=" container flex flex-col mt-30 md:mt-45 items-center space-y-5 ">
       <p className="text-sm text-primary">
         Toujours à votre écoute pour vous aidez !
       </p>

@@ -1,4 +1,10 @@
-import { ChevronLeft, ChevronRight, HelpCircle, Mail } from "lucide-react";
+import {
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  HelpCircle,
+  Mail,
+} from "lucide-react";
 import React, { act, useMemo, useState } from "react";
 import { Button } from "../ui/button";
 import { Label } from "@radix-ui/react-label";
@@ -70,12 +76,14 @@ function BudgetLocCalculator() {
   );
 
   return (
-    <div className=" max-w-7xl mx-auto  flex justify-center items-center">
+    <div className=" max-w-7xl mx-auto my-20 flex justify-center items-center">
       <div className="container grid grid-cols-1 justify-center items-start lg:grid-cols-12 gap-8">
         {/* Sidebar */}
-        <CalculatorSidebar />
+        <div className="lg:col-span-4 h-full ">
+          <CalculatorSidebar />
+        </div>
         {/* Main Content */}
-        <div className="lg:col-span-9">
+        <div className="lg:col-span-8">
           <Card className="">
             {/* Tab Navigation */}
             <div className="border-gray-200">
@@ -169,7 +177,7 @@ function BudgetLocCalculator() {
                       showTooltip={showTooltip}
                       setShowTooltip={setShowTooltip}
                       fieldKey="others"
-                      label="Prestations familiales"
+                      label="Autres"
                       value={personalFinances.monthlyIncomes.others || ""}
                       onValueChange={(value) =>
                         setPersonalFinances((prev: PersonalFinances) => ({
@@ -181,8 +189,9 @@ function BudgetLocCalculator() {
                         }))
                       }
                       placeholder="500"
-                      // hasTooltip={true}
-                      // tooltipContent=""
+                      hasTooltip={true}
+                      tooltipContent={`Exemples : travailleur autonome, \n pensions,
+                         assurance-emploi, prestations gouvernementales, etc.`}
                     />
                   </div>
                 </div>
@@ -430,63 +439,55 @@ export default BudgetLocCalculator;
 
 export function CalculatorSidebar() {
   return (
-    <div className="lg:col-span-3 h-full ">
-      <div className="bg-primary rounded-2xl px-6 text-white sticky top-6 py-42 md:px-12">
-        <h1 className="text-2xl font-bold mb-4">BudgetLoc™</h1>
-        <div className="space-y-4 mb-6">
-          <p className="text-blue-100">
-            Combien pouvez-vous réellement payer ?
-          </p>
-          <p className="text-blue-100">
-            C'est la première question à se poser avant de chercher un logement.
-          </p>
-          <p className="text-blue-100">
-            BudgetLoc™ est une calculatrice financière simple, intuitive et
-            conçue pour les locataires.
-          </p>
-          <p className="text-blue-100">
-            En quelques clics, vous saurez exactement quel loyer correspond à
-            votre budget.
-          </p>
+    <div className="bg-primary rounded-2xl px-6 text-white sticky top-6 py-42 md:px-12">
+      <h1 className="text-2xl font-bold mb-4">BudgetLoc™</h1>
+      <div className="space-y-4 mb-6">
+        <p className="text-blue-100">Combien pouvez-vous réellement payer ?</p>
+        <p className="text-blue-100">
+          C'est la première question à se poser avant de chercher un logement.
+        </p>
+        <p className="text-blue-100">
+          BudgetLoc™ est une calculatrice financière simple, intuitive et conçue
+          pour les locataires.
+        </p>
+        <p className="text-blue-100">
+          En quelques clics, vous saurez exactement quel loyer correspond à
+          votre budget.
+        </p>
+      </div>
+      <div className="mb-6">
+        <h3 className="font-semibold mb-3">Ce que ça vous apporte :</h3>
+        <div className="flex items-start gap-2">
+          <Check className="w-4 h-4 text-white mt-0.5 flex-shrink-0" />
+          <span className="text-blue-100">
+            Louer un logement adapté à votre réalité financière
+          </span>
         </div>
-        <div className="mb-6">
-          <h3 className="font-semibold mb-3">Ce que ça vous apporte :</h3>
-          <div className="space-y-2 text-sm">
-            <div className="flex items-start gap-2">
-              <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
-              <span className="text-blue-100">
-                Louer un logement adapté à votre réalité financière
-              </span>
-            </div>
-            <div className="flex items-start gap-2">
-              <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
-              <span className="text-blue-100">
-                Éviter de vivre au-dessus de vos moyens
-              </span>
-            </div>
-            <div className="flex items-start gap-2">
-              <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
-              <span className="text-blue-100">
-                Épargner pour un futur achat immobilier
-              </span>
-            </div>
-          </div>
+        <div className="flex items-start gap-2">
+          <Check className="w-4 h-4 text-white mt-0.5 flex-shrink-0" />
+          <span className="text-blue-100">
+            Éviter de vivre au-dessus de vos moyens
+          </span>
         </div>
-        <div className="border-t border-blue-300 pt-6">
-          <h3 className="font-semibold mb-3">QUESTION?</h3>
-          <p className="text-sm text-blue-100 mb-4">
-            Si vous avez encore des questions au sujet de votre ratio
-            d'endettement, vous pouvez nous écrire à
-          </p>
-          <div className="flex items-center gap-2 text-sm">
-            <Mail className="h-4 w-4" />
-            <span>Nos contacts</span>
-          </div>
-          <p className="text-sm text-blue-100 mt-1">
-            Nous sommes à votre écoute
-          </p>
-          <p className="text-sm font-medium mt-2">contact@loclocs.com</p>
+        <div className="flex items-start gap-2">
+          <Check className="w-4 h-4 text-white mt-0.5 flex-shrink-0" />
+          <span className="text-blue-100">
+            Épargner pour un futur achat immobilier
+          </span>
         </div>
+      </div>
+      <div className=" pt-6">
+        <h3 className="font-semibold mb-3">QUESTION?</h3>
+        <p className="text-sm text-blue-100 mb-4">
+          Si vous avez encore des questions au sujet de votre ratio
+          d'endettement, vous pouvez nous écrire à
+        </p>
+        <div className="flex items-center gap-2 text-sm">
+          <Mail className="h-4 w-4" />
+          <span>Nos contacts</span>
+        </div>
+        <p className="text-sm text-blue-100 mt-1">Nous sommes à votre écoute</p>
+        <p className="text-sm font-medium mt-2">contact@loclocs.com</p>
       </div>
     </div>
   );
@@ -519,15 +520,14 @@ export function CalculatorField({
         <Label htmlFor="preTaxSalary">{label}</Label>
         {hasTooltip && (
           <div className="relative">
-            <Button
+            <HelpCircle
+              className="h-4 w-4 text-primary/70 hover:text-primary transition-colors"
               onMouseEnter={() => setShowTooltip(fieldKey)}
               onMouseLeave={() => setShowTooltip(null)}
-              className="text-primary/70 hover:text-primary transition-colors"
-            >
-              <HelpCircle className="h-4 w-4" />
-            </Button>
+            />
+
             {showTooltip === fieldKey && tooltipContent && (
-              <div className="absolute z-20 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-primary rounded-lg shadow-lg whitespace-nowrap">
+              <div className="absolute z-10 min-w-40 max-w-lg h-fit whitespace-normal overflow-visible break-words bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-primary rounded-lg shadow-lg">
                 {tooltipContent}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-blue-600"></div>
               </div>
@@ -535,14 +535,19 @@ export function CalculatorField({
           </div>
         )}
       </div>
-      <Input
-        id={fieldKey ?? placeholder}
-        type="number"
-        value={value}
-        onChange={(e) => onValueChange(e.target.value)}
-        placeholder={placeholder}
-        className="text-lg"
-      />
+      <div className="relative">
+        <Input
+          id={fieldKey ?? placeholder}
+          type="number"
+          value={value}
+          onChange={(e) => onValueChange(e.target.value)}
+          placeholder={placeholder}
+          className="text-lg p-5 pr-12 rounded-full"
+        />
+        <span className="absolute right-4 top-5.5 -translate-y-1/2 text-sm font-medium">
+          CAD
+        </span>
+      </div>
     </div>
   );
 }

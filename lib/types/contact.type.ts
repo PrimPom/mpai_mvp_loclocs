@@ -7,4 +7,5 @@ export interface ContactFormValues {
     phoneNumber: string;
   };
   message: string;
+  agreesToConfidentialityPolicy: boolean;
 }

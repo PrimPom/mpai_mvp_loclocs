@@ -43,7 +43,7 @@ const ContactDetailCard: FC<ContactDetailCardProps> = ({
   info,
 }) => {
   return (
-    <Card className="flex flex-col items-center space-y-5 text-center py-0">
+    <Card className="flex flex-col items-center space-y-0 text-center py-0">
       <div className="h-12 w-12 p-3 bg-primary/10 rounded-full text-primary">
         <Icon className="text-primary" size={25} />
       </div>

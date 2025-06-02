@@ -1,19 +1,20 @@
 "use client";
 
-import BudgetLocCalculator from "@/components/budgetLoc/calculator";
 import FAQSection from "@/components/budgetLoc/FAQSection";
 import FadeInWhenVisible from "@/components/common/FadeInWhenVisible";
 import OutilHero from "@/components/common/OutilsHero";
+import PreLocForm from "@/components/preloc/Form";
+import React from "react";
 
-function BudgetLocPage() {
+function PreLocPage() {
   return (
     <div className=" ">
       <FadeInWhenVisible delay={0.1}>
-        <OutilHero outilName="BudgetLoc™" />
+        <OutilHero outilName="PreLoc™" />
       </FadeInWhenVisible>
 
       <FadeInWhenVisible delay={0.2}>
-        <BudgetLocCalculator />
+        <PreLocForm />
       </FadeInWhenVisible>
 
       <FadeInWhenVisible delay={0.3}>
@@ -23,4 +24,4 @@ function BudgetLocPage() {
   );
 }
 
-export default BudgetLocPage;
+export default PreLocPage;

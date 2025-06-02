@@ -1,4 +1,4 @@
-import { z } from "zod";
+import z from "zod";
 
 export const contactFormSchema = z.object({
   name: z.string().min(2, {
@@ -25,10 +25,8 @@ export const contactFormSchema = z.object({
     message: "Le message doit contenir au moins 10 caractères.",
   }),
 
-  agreesToConfidentialityPolicy: z.literal(true, {
-    errorMap: () => ({
-      message: "Vous devez accepter la politique de confidentialité",
-    }),
+  agreesToConfidentialityPolicy: z.boolean().refine((val) => val === true, {
+    message: "Vous devez accepter la politique de confidentialité",
   }),
 });
 

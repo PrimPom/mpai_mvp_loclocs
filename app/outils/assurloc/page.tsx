@@ -1,19 +1,20 @@
 "use client";
 
-import BudgetLocCalculator from "@/components/budgetLoc/calculator";
-import FAQSection from "@/components/budgetLoc/FAQSection";
+import AssurLocForm from "@/components/assurloc/Form";
 import FadeInWhenVisible from "@/components/common/FadeInWhenVisible";
 import OutilHero from "@/components/common/OutilsHero";
+import FAQSection from "@/components/budgetLoc/FAQSection";
+import React from "react";
 
-function BudgetLocPage() {
+function AssurLocPage() {
   return (
     <div className=" ">
       <FadeInWhenVisible delay={0.1}>
-        <OutilHero outilName="BudgetLoc™" />
+        <OutilHero outilName="AssurLoc™" />
       </FadeInWhenVisible>
 
       <FadeInWhenVisible delay={0.2}>
-        <BudgetLocCalculator />
+        <AssurLocForm />
       </FadeInWhenVisible>
 
       <FadeInWhenVisible delay={0.3}>
@@ -23,4 +24,4 @@ function BudgetLocPage() {
   );
 }
 
-export default BudgetLocPage;
+export default AssurLocPage;
