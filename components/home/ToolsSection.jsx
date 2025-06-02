@@ -16,7 +16,7 @@ export default function ToolsSection() {
       id: "02",
       title: "PréLoc™",
       description:
-        "Dans un marché locatif ultra concurrentiel, il ne suffit plus d’affirmer qu’on est un bon locataire. C’est ce constat qui a donné naissance à PréLoc™, un document officiel de préapprobation inspiré des pratiques hypothécaires, conçu pour renforcer la crédibilité des locataires dès le premier contact.",
+        "Dans un marché locatif ultra concurrentiel, il ne suffit plus d'affirmer qu'on est un bon locataire. C'est ce constat qui a donné naissance à PréLoc™, un document officiel de préapprobation inspiré des pratiques hypothécaires, conçu pour renforcer la crédibilité des locataires dès le premier contact.",
         lien:"/outils/budgetloc"
     },
     {

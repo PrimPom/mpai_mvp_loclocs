@@ -1,10 +1,8 @@
-import Navbar from "@/components/common/Navbar";
-import Footer from "@/components/common/Footer";
-import HeroSection from "@/components/home/HeroSection";
-import ToolsSection from "@/components/home/ToolsSection";
-import Histoire from "@/components/home/Histoire";
-import FAQSection from "@/components/home/FAQSection";
 import Avis from "@/components/home/Avis";
+import FAQSection from "@/components/home/FAQSection";
+import HeroSection from "@/components/home/HeroSection";
+import Histoire from "@/components/home/Histoire";
+import ToolsSection from "@/components/home/ToolsSection";
 
 import FadeInWhenVisible from "@/components/common/FadeInWhenVisible";
 

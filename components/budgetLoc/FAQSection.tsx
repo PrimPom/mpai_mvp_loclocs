@@ -1,12 +1,10 @@
-import Link from "next/link";
-import Image from "next/image";
-import React from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 function FAQSection() {
   return (

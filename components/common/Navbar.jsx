@@ -1,10 +1,10 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useRef } from "react";
-import { Menu, X , ChevronDown} from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function Navbar() {
   const [isMobileOpen, setMobileOpen] = useState(false);

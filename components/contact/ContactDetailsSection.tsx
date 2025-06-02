@@ -1,6 +1,6 @@
 import { LucideIcon, Mail, MapPin, Phone } from "lucide-react";
 import { FC } from "react";
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import { Card } from "../ui/card";
 
 function ContactDetailsSection() {
   return (

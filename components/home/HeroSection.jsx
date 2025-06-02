@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ShoppingBag } from "lucide-react";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function HeroSection() {
   const [selected, setSelected] = useState("budgetloc");

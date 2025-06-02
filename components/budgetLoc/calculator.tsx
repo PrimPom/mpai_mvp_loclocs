@@ -1,22 +1,22 @@
 import {
-  Check,
-  ChevronLeft,
-  ChevronRight,
-  HelpCircle,
-  Mail,
-} from "lucide-react";
-import React, { act, useMemo, useState } from "react";
-import { Button } from "../ui/button";
-import { Label } from "@radix-ui/react-label";
-import { Input } from "../ui/input";
-import {
   analyzeDebtRatio,
   calculateMonthlyDebts,
   PersonalFinances,
   RatioIndicator,
   sumObjectValues,
 } from "@/lib/financial";
+import { Label } from "@radix-ui/react-label";
+import {
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  HelpCircle,
+  Mail,
+} from "lucide-react";
+import { useMemo, useState } from "react";
+import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Input } from "../ui/input";
 
 function BudgetLocCalculator() {
   const [activeTab, setActiveTab] = useState("revenus");
