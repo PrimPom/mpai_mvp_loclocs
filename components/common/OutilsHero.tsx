@@ -25,7 +25,7 @@ function OutilHero({ outilName }: { outilName: string }) {
             <Outil name={outilName} />
           </div>
 
-          <div className="flex-shrink-0 flex justify-center md:justify-end">
+          <div className=" bg-amber-200 hidden md:flex  flex-shrink-0 justify-center md:justify-end">
             <img
               src={outilsGifs[outilName]}
               alt={outilName}

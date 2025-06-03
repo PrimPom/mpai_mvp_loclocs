@@ -47,10 +47,10 @@ export function CountryCodeSelector({
 }: CountryCodeSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const selectedCountry =
-    countryCodes.find((c) => c.id === value) || countryCodes[0];
+    countryCodes.find((c) => c.code === value) || countryCodes[0];
 
   const handleCountrySelect = (country: (typeof countryCodes)[0]) => {
-    onChange(country.id);
+    onChange(country.code);
     setIsOpen(false);
   };
 
