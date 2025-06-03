@@ -11,7 +11,7 @@ export default function VisionSection() {
         {/* Image */}
         <div className="w-full md:w-1/2">
           <div className="rounded-xl overflow-hidden ">
-            <Image
+            <img
               src="/about/vision.png"
               alt="Vision"
               width={600}

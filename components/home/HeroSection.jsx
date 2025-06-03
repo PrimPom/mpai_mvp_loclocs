@@ -26,13 +26,13 @@ export default function HeroSection() {
     <section className="relative w-full px-4 md:px-0 py-20 md:py-30">
       <div className="relative max-w-7xl mx-auto overflow-hidden rounded-t-[30px] ">
         {/* Background image */}
-        <Image
+        <img
           src="/hero2.png"
           alt="Maison moderne"
           width={1600}
           height={900}
           className="w-full h-[90vh] object-cover"
-          priority
+          
         />
 
         {/* contenus */}

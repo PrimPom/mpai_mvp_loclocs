@@ -53,7 +53,7 @@ export default function Team() {
                 key={index}
                 className=" rounded-lg   text-center"
               >
-                <Image
+                <img
                   src={member.image}
                   alt={member.name}
                   width={300}

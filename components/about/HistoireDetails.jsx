@@ -49,7 +49,7 @@ export default function HistoireDetails() {
 
         {/* Colonne centrale - Image */}
         <div className="md:col-span-1">
-          <Image
+          <img
             src="/about/famille.png" // Assure-toi d’avoir cette image dans `/public`
             alt="Famille devant ordinateur"
             width={500}
