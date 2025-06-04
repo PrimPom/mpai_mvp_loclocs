@@ -6,14 +6,14 @@ import Link from "next/link";
 
 function AssurLocForm() {
   return (
-    <div className=" max-w-7xl mx-auto my-20 flex justify-center items-center">
+    <div className=" my-20 flex justify-center items-center">
       <div className="container grid grid-cols-1 justify-center items-start lg:grid-cols-12 gap-8">
         {/* Sidebar */}
         <div className="lg:col-span-4 h-full ">
           <AssurLocSidebar />
         </div>
         {/* Main Content */}
-        <div className="lg:col-span-8">
+        <div className=" w-full flex justify-center lg:col-span-8">
           <ContactFormSection subject="Demande de AssurLoc" isContact={false} />
         </div>
       </div>

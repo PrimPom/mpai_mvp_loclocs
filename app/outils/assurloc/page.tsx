@@ -13,13 +13,14 @@ function AssurLocPage() {
         <OutilHero outilName="AssurLoc™" />
       </FadeInWhenVisible>
 
-      <FadeInWhenVisible delay={0.2}>
-        <AssurLocForm />
-      </FadeInWhenVisible>
-
-      <FadeInWhenVisible delay={0.3}>
-        <FAQSection />
-      </FadeInWhenVisible>
+      <div className="container w-full max-w-7xl mx-auto flex flex-col items-center">
+        <FadeInWhenVisible delay={0.2}>
+          <AssurLocForm />
+        </FadeInWhenVisible>
+        <FadeInWhenVisible delay={0.3}>
+          <FAQSection />
+        </FadeInWhenVisible>
+      </div>
     </div>
   );
 }

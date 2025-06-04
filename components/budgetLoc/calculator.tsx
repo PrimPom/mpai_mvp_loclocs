@@ -76,35 +76,38 @@ function BudgetLocCalculator() {
   );
 
   return (
-    <div className=" max-w-7xl mx-auto my-20 flex justify-center items-center">
-      <div className="container grid grid-cols-1 justify-center items-start lg:grid-cols-12 gap-8">
+    <div className="w-full my-20 flex justify-center items-center ">
+      <div className=" w-full grid grid-cols-1 justify-center items-start lg:grid-cols-12 gap-8">
         {/* Sidebar */}
-        <div className="lg:col-span-4 h-full ">
+        <div className="lg:col-span-4 h-full  ">
           <CalculatorSidebar />
         </div>
         {/* Main Content */}
         <div className="lg:col-span-8">
-          <Card className="">
+          <Card className="w-full flex justify-center">
             {/* Tab Navigation */}
-            <div className="border-gray-200">
-              <nav className=" grid grid-cols-5 gap-2 overflow-x-scroll justify-between border-none ">
+            <div className=" w-full ">
+              <nav className="w-full grid grid-cols-5 gap-2 overflow-x-scroll justify-between border-none ">
                 {tabs.map((tab, index) => (
                   <Button
-                    key={tab.id}
+                    key={index}
                     onClick={() => setActiveTab(tab.id)}
-                    className={` px-6 py-4 flex text-sm justify-start font-semibold border-b-5 rounded-none transition-colors ${
+                    className={` px-6 py-4  text-sm flex  justify-center font-semibold border-b-5 rounded-none transition-colors ${
                       activeTab === tab.id
                         ? "border-primary text-primary font-bold bg-background hover:bg-transparent"
                         : "bg-background hover:bg-transparent text-gray-300 hover:text-primary/70 border-gray-300 hover:border-primary/70"
                     }`}
                   >
-                    {tab.label}
+                    <span className="hidden md:block">{tab.label}</span>
+                    <span className="block md:hidden">
+                      {tabs.indexOf(tab) + 1}
+                    </span>
                   </Button>
                 ))}
               </nav>
             </div>
             {/* Tab Content */}
-            <div className="p-6 sm:p-8">
+            <div className="sm:p-8">
               {activeTab === "revenus" && (
                 <div>
                   <div className="pb-16 space-y-1">

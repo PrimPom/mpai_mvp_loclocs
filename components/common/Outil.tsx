@@ -10,7 +10,7 @@ function Outil({ name }: { name: string }) {
           {name}
         </h1>
 
-        <div className="absolute -bottom-5 right-3 w-[120px] sm:w-[150px] md:w-[180px] lg:w-[210px]">
+        <div className=" absolute -bottom-5 right-3 w-[120px] sm:w-[150px] md:w-[180px] lg:w-[210px]">
           <svg
             viewBox="0 0 210 16"
             className="scale-50 sm:scale-75 md:scale-70 lg:scale-100"

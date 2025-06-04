@@ -115,7 +115,7 @@ function ContactFormSection({
   }
 
   return (
-    <section className="container max-w-xl pb-20 ">
+    <section className="container max-w-xl mx-auto pb-20 ">
       <Card className="w-full text-center ">
         <CardHeader className="space-y-5">
           <h3 className="text-lg text-primary font-bold">Contactez-nous</h3>

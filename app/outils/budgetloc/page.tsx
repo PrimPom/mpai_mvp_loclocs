@@ -12,13 +12,14 @@ function BudgetLocPage() {
         <OutilHero outilName="BudgetLoc™" />
       </FadeInWhenVisible>
 
-      <FadeInWhenVisible delay={0.2}>
-        <BudgetLocCalculator />
-      </FadeInWhenVisible>
-
-      <FadeInWhenVisible delay={0.3}>
-        <FAQSection />
-      </FadeInWhenVisible>
+      <div className="container w-full max-w-7xl mx-auto flex flex-col items-center">
+        <FadeInWhenVisible delay={0.2}>
+          <BudgetLocCalculator />
+        </FadeInWhenVisible>
+        <FadeInWhenVisible delay={0.3}>
+          <FAQSection />
+        </FadeInWhenVisible>
+      </div>
     </div>
   );
 }
