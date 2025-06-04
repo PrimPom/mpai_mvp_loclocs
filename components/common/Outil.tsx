@@ -2,7 +2,7 @@ import React from "react";
 
 function Outil({ name }: { name: string }) {
   return (
-    <div className="flex flex-col items-start space-y-3 md:space-y-5 w-full text-primary">
+    <div className="flex flex-col items-start space-y-3 md:space-y-5 w-full md:m-0 mb-32  text-primary">
       <p className="text-xs md:text-sm font-medium tracking-wide">Nos outils</p>
 
       <div className="relative w-fit ">
