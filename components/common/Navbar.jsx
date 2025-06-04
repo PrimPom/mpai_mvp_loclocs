@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef } from "react";
-import { Menu, X , ChevronDown} from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -61,7 +61,7 @@ export default function Navbar() {
               >
                 Nos outils <ChevronDown size={16} />
                 <span
-                  className={`absolute left-1/2 -bottom-1 w-1.5 h-1.5 rounded-full bg-primary transition duration-300 transform -translate-x-1/2 ${
+                  className={`absolute left-1/2 -bottom-2 w-1.5 h-1.5 rounded-full bg-primary transition duration-300 transform -translate-x-1/2 ${
                     pathname.includes("/outils")
                       ? "opacity-100"
                       : "opacity-0 group-hover:opacity-100"
@@ -127,19 +127,39 @@ export default function Navbar() {
             className="md:hidden bg-white px-6 pb-4 shadow-lg"
           >
             <ul className="flex flex-col space-y-4 text-gray-700 font-medium">
-              <NavItem href="/" label="Accueil" pathname={pathname} mobile />
+              <NavItem
+                href="/"
+                label="Accueil"
+                pathname={pathname}
+                mobile
+                setMobileOpen={setMobileOpen}
+              />
               <NavItem
                 href="/about"
                 label="Qui sommes-nous ?"
                 pathname={pathname}
                 mobile
+                setMobileOpen={setMobileOpen}
               />
               <MobileDropdown label="Nos outils">
-                <SubItem href="/outils/budgetloc" label="BudgetLoc™" />
-                <SubItem href="/outils/preloc" label="PréLoc™" />
-                <SubItem href="/outils/assurloc" label="AssurLoc™" />
+                <SubItem
+                  href="/outils/budgetloc"
+                  label="BudgetLoc™"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <SubItem
+                  href="/outils/preloc"
+                  label="PréLoc™"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <SubItem
+                  href="/outils/assurloc"
+                  label="AssurLoc™"
+                  onClick={() => setMobileOpen(false)}
+                />
               </MobileDropdown>
-              <li>
+
+              <li onClick={() => setMobileOpen(false)}>
                 <Link
                   href="/contact"
                   className="block w-full ring-2 ring-primary text-primary hover:bg-primary hover:text-white py-2 px-4 rounded-full text-center mt-4"
@@ -168,7 +188,7 @@ function MotionNavItem({ href, label, pathname, variants }) {
       >
         {label}
         <span
-          className={`absolute left-1/2 -bottom-1 w-1.5 h-1.5 rounded-full bg-primary transform -translate-x-1/2 transition duration-300 ${
+          className={`absolute left-1/2 -bottom-2 w-1.5 h-1.5 rounded-full bg-primary transform -translate-x-1/2 transition duration-300 ${
             isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
           }`}
         />
@@ -177,21 +197,28 @@ function MotionNavItem({ href, label, pathname, variants }) {
   );
 }
 
-function NavItem({ href, label, mobile = false, pathname }) {
+function NavItem({ href, label, mobile = false, pathname, setMobileOpen }) {
   const isActive = pathname === href;
+
+  const handleClick = () => {
+    if (mobile && setMobileOpen) {
+      setMobileOpen(false);
+    }
+  };
 
   return (
     <li>
       <Link
         href={href}
+        onClick={handleClick}
         className={`relative transition ${
-          isActive ? "text-primary" : "hover:text-sky-600"
+          isActive ? "text-primary" : "hover:text-primary"
         } ${!mobile ? "group" : ""}`}
       >
         {label}
         {!mobile && (
           <span
-            className={`absolute left-1/2 -bottom-1 w-1.5 h-1.5 rounded-full bg-primary transform -translate-x-1/2 transition duration-300 ${
+            className={`absolute left-1/2 -bottom-3 w-1.5 h-1.5 rounded-full bg-primary transform -translate-x-1/2 transition duration-300 ${
               isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
             }`}
           />

@@ -12,14 +12,20 @@ export default function HeroSection() {
     budgetloc: {
       label: "BudgetLoc™",
       link: "/outils/budgetloc",
+      icon:"/wallet.png",
+      button:"Essayez maintenant !"
     },
     preloc: {
       label: "PréLoc™",
       link: "/outils/preloc",
+      icon:"/contrat.png",
+      button:"Lancer une demande"
     },
     assurloc: {
       label: "AssurLoc™",
       link: "/outils/assurloc",
+      icon:"/assuc.png",
+      button:"Faire une demande"
     },
   };
   return (
@@ -74,9 +80,9 @@ export default function HeroSection() {
 
                 {/* CTA dynamique */}
                 <Link href={tools[selected].link}>
-                  <button className="flex items-center justify-center cursor-pointer gap-2 mt-3 w-full py-2 bg-primary  transition text-white font-semibold rounded-full text-sm">
-                    Essayer {tools[selected].label}{" "}
-                    <img src="/wallet.png" alt="wallet icon" />
+                  <button className="flex items-center justify-center cursor-pointer gap-2 mt-3 w-full py-2 bg-primary  transition text-white font-semibold rounded-full text-lg">
+                    {tools[selected].button}{" "}
+                    <img className="w-6 h-6 " src={tools[selected].icon} alt="icon" />
                   </button>
                 </Link>
               </div>

@@ -19,7 +19,7 @@ export default function Team() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+        <div className="flex justify-between flex-wrap gap-4">
           {/* Titre à gauche */}
           <div>
           <h2 className="text-3xl sm:text-4xl font-bold text-primary leading-tight">
@@ -47,7 +47,7 @@ export default function Team() {
           </div>
 
           {/* Cartes des membres */}
-          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
+          <div className="flex md:justify-between flex-wrap gap-6 justify-start">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
@@ -58,7 +58,7 @@ export default function Team() {
                   alt={member.name}
                   width={300}
                   height={300}
-                  className="w-full h-auto  rounded-xl object-cover"
+                  className="w-[300px] h-auto  rounded-xl object-cover"
                 />
                 <div className="p-4">
                   <h3 className="text-sm font-semibold text-gray-900">

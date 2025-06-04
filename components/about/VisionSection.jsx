@@ -6,7 +6,7 @@ import { Check } from "lucide-react";
 
 export default function VisionSection() {
   return (
-    <section className="bg-primary py-12  px-6 md:px-16 text-white">
+    <section className="bg-primary md:py-24 py-8 px-6 md:px-16 text-white">
       <div className="flex flex-col md:flex-row justify-between items-center gap-10  mx-auto">
         {/* Image */}
         <div className="w-full md:w-1/2">

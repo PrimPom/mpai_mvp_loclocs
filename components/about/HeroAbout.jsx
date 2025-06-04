@@ -3,7 +3,7 @@
 
 export default function HeroAbout() {
   return (
-    <section className="relative bg-cover bg-center w-full h-[80vh] flex flex-col items-center justify-center px-4 py-20" style={{ backgroundImage: "url('/about/about-image.jpg')" }}>
+    <section className="relative bg-cover bg-center w-full h-[90vh] flex flex-col items-center justify-center px-4 py-20" style={{ backgroundImage: "url('/about/about-image.jpg')" }}>
       {/* Titre principal */}
       <div className="text-center mb-32">
         <p className="text-sm text-primary">Notre Histoire, Notre mission, et notre équipe</p>
