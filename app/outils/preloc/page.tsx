@@ -1,6 +1,6 @@
 "use client";
 
-import FAQSection from "@/components/budgetLoc/FAQSection";
+import FAQSection from "@/components/assurloc/FAQSection";
 import FadeInWhenVisible from "@/components/common/FadeInWhenVisible";
 import OutilHero from "@/components/common/OutilsHero";
 import PreLocForm from "@/components/preloc/Form";
@@ -18,7 +18,7 @@ function PreLocPage() {
           <PreLocForm />
         </FadeInWhenVisible>
         <FadeInWhenVisible delay={0.3}>
-          <FAQSection />
+          <FAQSection name="PreLoc™" />
         </FadeInWhenVisible>
       </div>
     </div>

@@ -3,7 +3,7 @@
 import AssurLocForm from "@/components/assurloc/Form";
 import FadeInWhenVisible from "@/components/common/FadeInWhenVisible";
 import OutilHero from "@/components/common/OutilsHero";
-import FAQSection from "@/components/budgetLoc/FAQSection";
+import FAQSection from "@/components/assurloc/FAQSection";
 import React from "react";
 
 function AssurLocPage() {
